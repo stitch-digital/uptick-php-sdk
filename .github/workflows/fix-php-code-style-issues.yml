@@ -1,0 +1,39 @@
+name: Fix PHP Code Style Issues
+
+on:
+  push:
+    paths:
+      - '**.php'
+      - 'pint.json'
+
+jobs:
+  pint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          tools: composer:v2
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Run Pint
+        uses: aglipanci/laravel-pint-action@v2
+        with:
+          pint-version: latest
+          test-mode: false
+          config-path: pint.json
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Fix code style issues'
+          skip_dirty_check: true
