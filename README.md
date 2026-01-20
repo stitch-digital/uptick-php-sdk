@@ -20,31 +20,10 @@ A stable, production-ready release has **not** yet been tagged. Until a `v1.0.0`
 
 ## About Uptick
 
-[Uptick](https://www.uptickhq.com/) is a cloud-based field service and compliance platform designed specifically for fire protection, security, HVAC and related maintenance businesses, helping them manage inspections, scheduling, asset maintenance and reporting in one place. It replaces paper and manual processes with a mobile-friendly system that lets technicians capture data, photos and defect details on site while office teams handle job scheduling, quoting, invoicing and customer communication more efficiently, all backed by built-in standards and integrations with tools like accounting software. Uptick has expanded into the UK market to support local fire protection businesses with its purpose-built tools for compliance and workforce management.
+[Uptick](https://www.uptickhq.com/) is a cloud-based field service and compliance platform designed specifically for fire protection, security, HVAC and related maintenance businesses, helping them manage inspections, scheduling, asset maintenance and reporting in one place. It replaces paper and manual processes with a mobile-friendly system that lets technicians capture data, photos and defect details on site while office teams handle job scheduling, quoting, invoicing and customer communication more efficiently, all backed by built-in standards and integrations with tools like accounting software.
 
 - **Website:** [https://www.uptickhq.com/](https://www.uptickhq.com/)
 - **GitHub:** [https://github.com/uptick](https://github.com/uptick)
-
-```php
-use Uptick\PhpSdk\Uptick\Uptick;
-
-$uptick = Uptick::make(
-    baseUrl: 'https://api.uptick.example.com',
-    username: 'your_username',
-    password: 'your_password',
-    clientId: 'your_client_id',
-    clientSecret: 'your_client_secret'
-);
-
-$paginator = $uptick->clients()->list();
-
-foreach ($paginator->items() as $client) {
-    // e.g. Acme Corporation
-    $clientName = $client->attributes->name;
-}
-```
-
-Behind the scenes, the SDK uses [Saloon](https://docs.saloon.dev) to make the HTTP requests.
 
 ## Installation
 
@@ -78,6 +57,8 @@ foreach ($paginator->items() as $client) {
 // Or collect all items into an array
 $allClients = $paginator->collect()->all();
 ```
+
+Behind the scenes, the SDK uses [Saloon](https://docs.saloon.dev) to make the HTTP requests.
 
 ## Usage
 
