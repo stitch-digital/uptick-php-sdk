@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Saloon\Exceptions\Request\ClientException;
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
 use Uptick\PhpSdk\Uptick\Requests\Auth\RefreshAccessTokenRequest;
@@ -47,5 +48,5 @@ it('handles refresh token errors', function () {
     ]);
 
     expect(fn () => $this->sdk->refreshAccessToken('invalid_token'))
-        ->toThrow(Uptick\PhpSdk\Uptick\Exceptions\UptickException::class);
+        ->toThrow(ClientException::class);
 });

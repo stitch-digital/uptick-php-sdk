@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace Uptick\PhpSdk\Uptick\Exceptions;
 
-use Saloon\Http\Response;
+use Saloon\Exceptions\Request\Client\UnprocessableEntityException;
 
-final class ValidationException extends UptickException
+final class ValidationException extends UnprocessableEntityException
 {
     /**
      * @var array<string, array<int, string>>
      */
     private array $errors = [];
 
-    public function __construct(Response $response)
+    public function __construct(\Saloon\Http\Response $response)
     {
         parent::__construct($response);
 

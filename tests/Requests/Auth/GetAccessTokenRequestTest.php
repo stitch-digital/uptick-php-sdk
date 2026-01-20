@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Saloon\Exceptions\Request\ClientException;
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
 use Uptick\PhpSdk\Uptick\Requests\Auth\GetAccessTokenRequest;
@@ -49,5 +50,5 @@ it('handles authentication errors', function () {
     ]);
 
     expect(fn () => $this->sdk->getAccessToken())
-        ->toThrow(Uptick\PhpSdk\Uptick\Exceptions\UptickException::class);
+        ->toThrow(ClientException::class);
 });

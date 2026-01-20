@@ -16,7 +16,6 @@ use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 use Saloon\Traits\Plugins\HasTimeout;
 use Throwable;
 use Uptick\PhpSdk\Uptick\Concerns\SupportsClientsEndpoints;
-use Uptick\PhpSdk\Uptick\Exceptions\UptickException;
 use Uptick\PhpSdk\Uptick\Exceptions\ValidationException;
 use Uptick\PhpSdk\Uptick\Paginators\UptickPaginator;
 use Uptick\PhpSdk\Uptick\Requests\Auth\GetAccessTokenRequest;
@@ -152,13 +151,14 @@ final class Uptick extends \Saloon\Http\Connector implements HasPagination
     /**
      * Get request exception for error handling.
      */
-    public function getRequestException(Response $response, ?Throwable $senderException): Throwable
+    public function getRequestException(Response $response, ?Throwable $senderException): ?Throwable
     {
         if ($response->status() === 422) {
             return new ValidationException($response);
         }
 
-        return new UptickException($response);
+        // Let Saloon handle other exceptions
+        return null;
     }
 
     /**
