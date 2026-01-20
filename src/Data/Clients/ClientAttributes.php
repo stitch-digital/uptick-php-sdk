@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Uptick\PhpSdk\Uptick\Data\Clients;
 
+use DateTimeImmutable;
+
 final readonly class ClientAttributes
 {
     /**
@@ -11,8 +13,8 @@ final readonly class ClientAttributes
      */
     public function __construct(
         public ?string $webUrl = null,
-        public ?string $created = null,
-        public ?string $updated = null,
+        public ?DateTimeImmutable $created = null,
+        public ?DateTimeImmutable $updated = null,
         public ?string $ref = null,
         public ?string $name = null,
         public ?bool $isActive = null,
@@ -50,10 +52,13 @@ final readonly class ClientAttributes
         public ?string $quotingRequirements = null,
         public ?string $notes = null,
         public ?string $address = null,
-        public ?string $materialMarkup = null,
+        public ?float $materialMarkup = null,
         public array $extraFields = [],
         public ?string $primaryContactEmail = null,
-        public ?string $sector = null,
+        public ?Sector $sector = null,
+        public ?int $propertyCount = null,
+        public ?int $openFaultCount = null,
+        public ?string $defectsCount = null,
     ) {}
 
     /**
@@ -61,10 +66,46 @@ final readonly class ClientAttributes
      */
     public static function fromArray(array $data): self
     {
+        $created = null;
+        if (isset($data['created']) && is_string($data['created'])) {
+            $created = DateTimeImmutable::createFromFormat(DATE_ATOM, $data['created']) ?: null;
+            if ($created === null) {
+                $created = DateTimeImmutable::createFromFormat('Y-m-d\TH:i:s\Z', $data['created']) ?: null;
+            }
+        }
+
+        $updated = null;
+        if (isset($data['updated']) && is_string($data['updated'])) {
+            $updated = DateTimeImmutable::createFromFormat(DATE_ATOM, $data['updated']) ?: null;
+            if ($updated === null) {
+                $updated = DateTimeImmutable::createFromFormat('Y-m-d\TH:i:s\Z', $data['updated']) ?: null;
+            }
+        }
+
+        $materialMarkup = null;
+        if (isset($data['material_markup'])) {
+            $materialMarkup = is_numeric($data['material_markup']) ? (float) $data['material_markup'] : null;
+        }
+
+        $sector = null;
+        if (isset($data['sector']) && is_string($data['sector'])) {
+            $sector = Sector::tryFrom($data['sector']);
+        }
+
+        $propertyCount = null;
+        if (isset($data['property_count'])) {
+            $propertyCount = is_numeric($data['property_count']) ? (int) $data['property_count'] : null;
+        }
+
+        $openFaultCount = null;
+        if (isset($data['open_fault_count'])) {
+            $openFaultCount = is_numeric($data['open_fault_count']) ? (int) $data['open_fault_count'] : null;
+        }
+
         return new self(
             webUrl: $data['__web_url__'] ?? null,
-            created: $data['created'] ?? null,
-            updated: $data['updated'] ?? null,
+            created: $created,
+            updated: $updated,
             ref: $data['ref'] ?? null,
             name: $data['name'] ?? null,
             isActive: $data['is_active'] ?? null,
@@ -102,10 +143,13 @@ final readonly class ClientAttributes
             quotingRequirements: $data['quoting_requirements'] ?? null,
             notes: $data['notes'] ?? null,
             address: $data['address'] ?? null,
-            materialMarkup: $data['material_markup'] ?? null,
+            materialMarkup: $materialMarkup,
             extraFields: $data['extra_fields'] ?? [],
             primaryContactEmail: $data['primary_contact__email'] ?? null,
-            sector: $data['sector'] ?? null,
+            sector: $sector,
+            propertyCount: $propertyCount,
+            openFaultCount: $openFaultCount,
+            defectsCount: $data['defects_count'] ?? null,
         );
     }
 }
