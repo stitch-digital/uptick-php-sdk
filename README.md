@@ -5,6 +5,13 @@
 
 This package is an unofficial PHP SDK for the Uptick API, built with [Saloon](https://docs.saloon.dev/) v3.
 
+⚠️ **Active Development Notice**
+
+This package is under active development. The API, features, and internal structure may change at any time.
+
+A stable, production-ready release has **not** yet been tagged. Until a `v1.0.0` (or similar) release is published, this SDK should be considered **experimental** and used with caution in production environments.
+
+
 <div align="center">
   <a href="https://www.uptickhq.com/">
     <img src="uptick-logo.webp" alt="Uptick Logo">
