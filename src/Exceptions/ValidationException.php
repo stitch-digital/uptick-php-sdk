@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Uptick\PhpSdk\Uptick\Exceptions;
 
-use Saloon\Exceptions\Request\Client\UnprocessableEntityException;
+use Saloon\Exceptions\Request\Statuses\UnprocessableEntityException;
 
 final class ValidationException extends UnprocessableEntityException
 {
