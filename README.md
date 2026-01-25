@@ -38,7 +38,7 @@ use Uptick\PhpSdk\Uptick\Uptick;
 
 // Create an SDK instance
 $uptick = Uptick::make(
-    baseUrl: 'https://{slug}.onuptick.com/api/v2/',
+    baseUrl: 'https://your-company.onuptick.com/api/v2/',
     username: 'your_username',
     password: 'your_password',
     clientId: 'your_client_id',
@@ -68,7 +68,7 @@ The SDK handles OAuth2 authentication automatically. You provide your credential
 
 ```php
 $uptick = Uptick::make(
-    baseUrl: 'https://{slug}.onuptick.com/api/v2/',
+    baseUrl: 'https://your-company.onuptick.com/api/v2/',
     username: 'your_username',
     password: 'your_password',
     clientId: 'your_client_id',
@@ -87,7 +87,7 @@ By default, the SDK waits 10 seconds for a response. Override via the constructo
 
 ```php
 $uptick = new Uptick(
-    baseUrl: 'https://{slug}.onuptick.com/api/v2/',
+    baseUrl: 'https://your-company.onuptick.com/api/v2/',
     username: 'your_username',
     password: 'your_password',
     clientId: 'your_client_id',
