@@ -20,7 +20,10 @@
           "postal_code": "2000",
           "place_id": "ChIJP3Sa8ziYEmsRUKgyFmh9AQM"
         },
-        "coords": null,
+        "coords": {
+          "lat": -33.8688197,
+          "lng": 151.2092955
+        },
         "timezone": "Australia/Sydney",
         "access_code": "1234",
         "access_inductionreq": true,

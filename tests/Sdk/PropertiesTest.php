@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
 use Uptick\PhpSdk\Uptick\Data\Properties\Address;
+use Uptick\PhpSdk\Uptick\Data\Properties\Coordinates;
 use Uptick\PhpSdk\Uptick\Data\Properties\Property;
 use Uptick\PhpSdk\Uptick\Data\Properties\PropertyAttributes;
 use Uptick\PhpSdk\Uptick\Paginators\UptickPaginator;
@@ -62,6 +63,21 @@ it('parses address fields correctly', function () {
         ->and($address->state)->toBe('NSW')
         ->and($address->countryName)->toBe('Australia')
         ->and($address->postalCode)->toBe('2000');
+});
+
+it('parses coordinates correctly', function () {
+    MockClient::global([
+        GetAccessTokenRequest::class => MockResponse::fixture('get_access_token'),
+        ListPropertiesRequest::class => MockResponse::fixture('list_properties'),
+    ]);
+
+    $paginator = $this->sdk->properties()->list();
+    $properties = iterator_to_array($paginator->items());
+
+    expect($properties[0]->attributes->coords)->toBeInstanceOf(Coordinates::class)
+        ->and($properties[0]->attributes->coords->lat)->toBe(-33.8688197)
+        ->and($properties[0]->attributes->coords->lng)->toBe(151.2092955)
+        ->and($properties[1]->attributes->coords)->toBeNull();
 });
 
 it('parses DateTime fields correctly', function () {
