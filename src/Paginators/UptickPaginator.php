@@ -9,7 +9,6 @@ use ReflectionClass;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 use Saloon\PaginationPlugin\OffsetPaginator;
-use Uptick\PhpSdk\Uptick\Data\Clients\Client;
 
 final class UptickPaginator extends OffsetPaginator
 {
@@ -64,13 +63,8 @@ final class UptickPaginator extends OffsetPaginator
             // If DTO extraction fails, fall through to legacy behavior
         }
 
-        // Fallback to legacy behavior for backward compatibility
-        $results = $response->json('results', []);
-
-        return array_map(
-            Client::fromArray(...),
-            $results
-        );
+        // Fallback to raw results from response
+        return $response->json('data', $response->json('results', []));
     }
 
     /**
@@ -85,7 +79,7 @@ final class UptickPaginator extends OffsetPaginator
         }
 
         // Common property names that might contain the items array
-        $propertyNames = ['clients', 'items', 'results', 'data'];
+        $propertyNames = ['clients', 'properties', 'items', 'results', 'data'];
 
         foreach ($propertyNames as $propertyName) {
             if (property_exists($dto, $propertyName)) {
