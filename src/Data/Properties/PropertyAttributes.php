@@ -126,7 +126,7 @@ final readonly class PropertyAttributes
             certificationDate: self::parseDate($data['certification_date'] ?? null),
             bsecureLatestStickerGuid: $data['bsecure_latest_sticker_guid'] ?? null,
             bsecureResolvedGuid: $data['bsecure_resolved_guid'] ?? null,
-            restrictedAccessHours: $data['restricted_access_hours'] ?? null,
+            restrictedAccessHours: self::parseString($data['restricted_access_hours'] ?? null),
             getAbsoluteUrl: $data['get_absolute_url'] ?? null,
             extraFields: $data['extra_fields'] ?? [],
         );
@@ -154,6 +154,11 @@ final readonly class PropertyAttributes
         }
 
         return DateTimeImmutable::createFromFormat('Y-m-d', $value) ?: null;
+    }
+
+    private static function parseString(mixed $value): ?string
+    {
+        return is_string($value) ? $value : null;
     }
 
     private static function parseFloat(mixed $value): ?float
