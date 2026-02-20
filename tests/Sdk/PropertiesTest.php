@@ -120,10 +120,10 @@ it('parses relationships correctly', function () {
     $properties = iterator_to_array($paginator->items());
 
     expect($properties[0]->relationships)->toBeArray()
-        ->and($properties[0]->relationships['client']['data']['type'])->toBe('Client')
-        ->and($properties[0]->relationships['client']['data']['id'])->toBe('1')
-        ->and($properties[0]->relationships['account_manager']['data']['type'])->toBe('User')
-        ->and($properties[0]->relationships['billingcard']['data'])->toBeNull();
+        ->and($properties[0]->relationships['client']['type'])->toBe('Client')
+        ->and($properties[0]->relationships['client']['id'])->toBe('1')
+        ->and($properties[0]->relationships['account_manager']['type'])->toBe('User')
+        ->and($properties[0]->relationships)->not->toHaveKey('billingcard');
 });
 
 it('filters properties by client', function () {

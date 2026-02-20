@@ -25,7 +25,7 @@ final readonly class PropertyListResponse
     {
         $properties = array_map(
             Property::fromArray(...),
-            $data['data'] ?? []
+            $data['results'] ?? []
         );
 
         $links = isset($data['links']) ? PaginationLinks::fromArray($data['links']) : null;

@@ -2,221 +2,179 @@
   "statusCode": 200,
   "headers": {},
   "data": {
+    "results": [
+      {
+        "id": "1",
+        "__str__": "Test Property 1",
+        "__web_url__": "/properties/1/view/",
+        "created": "2024-01-15T10:30:00Z",
+        "updated": "2024-02-20T14:45:00Z",
+        "inactive_date": null,
+        "address": {
+          "country": "AU",
+          "display": "123 Test Street, Sydney NSW 2000",
+          "streetline": "123 Test Street",
+          "city": "Sydney",
+          "state": "NSW",
+          "country_name": "Australia",
+          "postal_code": "2000",
+          "place_id": "ChIJP3Sa8ziYEmsRUKgyFmh9AQM"
+        },
+        "coords": null,
+        "timezone": "Australia/Sydney",
+        "access_code": "1234",
+        "access_inductionreq": true,
+        "access_logbookreq": false,
+        "access_note": "Report to reception",
+        "access_procedure": "Check in at front desk",
+        "access_schedule": "BH",
+        "access_signaturereq": true,
+        "agm_date": null,
+        "autocomp_label": "Test Property 1",
+        "billing_manual": false,
+        "billing_requirements": "",
+        "building_classes": [],
+        "building_construction_class": "A",
+        "building_era": "2000s",
+        "building_part": "",
+        "building_size": "Large",
+        "building_sizesqm": 5000.5,
+        "building_storeys_above_ground": 10,
+        "building_storeys_below_ground": 2,
+        "building_type": "Commercial",
+        "building_tenancies": 15,
+        "client_ref": "PROP-001",
+        "client_signature_required": false,
+        "cofo_date": null,
+        "cofo_location": "",
+        "cofo_number": "",
+        "internal_note": "Key client property",
+        "is_compliant": true,
+        "local_government_area": "City of Sydney",
+        "name": "Test Property 1",
+        "ocsp_number": "",
+        "organisation": "Test Corp",
+        "ref": "TP001",
+        "report_manual": false,
+        "report_requirements": "",
+        "round_number": "R1",
+        "status": "ACTIVE",
+        "authorisation_ref": "",
+        "service_requirements": "",
+        "safety_requirements": "PPE required",
+        "review_date": "2024-06-15",
+        "certification_date": null,
+        "bsecure_latest_sticker_guid": null,
+        "bsecure_resolved_guid": null,
+        "restricted_access_hours": null,
+        "get_absolute_url": "/properties/1/view/",
+        "extra_fields": {},
+        "client": {
+          "type": "Client",
+          "id": "1"
+        },
+        "account_manager": {
+          "type": "User",
+          "id": "5"
+        },
+        "billingcard": null,
+        "parent_property": null,
+        "branch": {
+          "type": "Branch",
+          "id": "2"
+        },
+        "pricetier": null,
+        "zone": {
+          "type": "Zone",
+          "id": "3"
+        },
+        "iotsite": null
+      },
+      {
+        "id": "2",
+        "__str__": "Test Property 2",
+        "__web_url__": "/properties/2/view/",
+        "created": "2024-03-10T08:00:00Z",
+        "updated": "2024-04-05T16:20:00Z",
+        "inactive_date": null,
+        "address": {
+          "country": "AU",
+          "display": "456 Example Ave, Melbourne VIC 3000",
+          "streetline": "456 Example Ave",
+          "city": "Melbourne",
+          "state": "VIC",
+          "country_name": "Australia",
+          "postal_code": "3000",
+          "place_id": ""
+        },
+        "coords": null,
+        "timezone": "Australia/Melbourne",
+        "access_code": "",
+        "access_inductionreq": false,
+        "access_logbookreq": false,
+        "access_note": "",
+        "access_procedure": "",
+        "access_schedule": "NR",
+        "access_signaturereq": false,
+        "agm_date": null,
+        "autocomp_label": "Test Property 2",
+        "billing_manual": true,
+        "billing_requirements": "PO required",
+        "building_classes": [],
+        "building_construction_class": "",
+        "building_era": "",
+        "building_part": "",
+        "building_size": "",
+        "building_sizesqm": null,
+        "building_storeys_above_ground": null,
+        "building_storeys_below_ground": null,
+        "building_type": "Residential",
+        "building_tenancies": 1,
+        "client_ref": "",
+        "client_signature_required": false,
+        "cofo_date": null,
+        "cofo_location": "",
+        "cofo_number": "",
+        "internal_note": "",
+        "is_compliant": null,
+        "local_government_area": "",
+        "name": "Test Property 2",
+        "ocsp_number": "",
+        "organisation": "",
+        "ref": "TP002",
+        "report_manual": false,
+        "report_requirements": "",
+        "round_number": "",
+        "status": "ACTIVE",
+        "authorisation_ref": "",
+        "service_requirements": "",
+        "safety_requirements": "",
+        "review_date": null,
+        "certification_date": null,
+        "bsecure_latest_sticker_guid": null,
+        "bsecure_resolved_guid": null,
+        "restricted_access_hours": null,
+        "get_absolute_url": "/properties/2/view/",
+        "extra_fields": {},
+        "client": {
+          "type": "Client",
+          "id": "2"
+        },
+        "account_manager": null,
+        "billingcard": null,
+        "parent_property": null,
+        "branch": null,
+        "pricetier": null,
+        "zone": null,
+        "iotsite": null
+      }
+    ],
     "links": {
-      "first": "https://api.uptick.test/api/v2/properties/",
-      "last": "https://api.uptick.test/api/v2/properties/?page%5Blimit%5D=50",
+      "first": "https://api.uptick.test/api/v2/properties/?page[limit]=50&page[offset]=0",
+      "last": "https://api.uptick.test/api/v2/properties/?page[limit]=50&page[offset]=0",
       "next": null,
       "prev": null
     },
-    "data": [
-      {
-        "type": "Property",
-        "id": "1",
-        "attributes": {
-          "__str__": "Test Property 1",
-          "__web_url__": "/properties/1/view/",
-          "created": "2024-01-15T10:30:00Z",
-          "updated": "2024-02-20T14:45:00Z",
-          "inactive_date": null,
-          "address": {
-            "country": "AU",
-            "display": "123 Test Street, Sydney NSW 2000",
-            "streetline": "123 Test Street",
-            "city": "Sydney",
-            "state": "NSW",
-            "country_name": "Australia",
-            "postal_code": "2000",
-            "place_id": "ChIJP3Sa8ziYEmsRUKgyFmh9AQM"
-          },
-          "coords": null,
-          "timezone": "Australia/Sydney",
-          "access_code": "1234",
-          "access_inductionreq": true,
-          "access_logbookreq": false,
-          "access_note": "Report to reception",
-          "access_procedure": "Check in at front desk",
-          "access_schedule": "BH",
-          "access_signaturereq": true,
-          "agm_date": null,
-          "autocomp_label": "Test Property 1",
-          "billing_manual": false,
-          "billing_requirements": "",
-          "building_classes": [],
-          "building_construction_class": "A",
-          "building_era": "2000s",
-          "building_part": "",
-          "building_size": "Large",
-          "building_sizesqm": 5000.5,
-          "building_storeys_above_ground": 10,
-          "building_storeys_below_ground": 2,
-          "building_type": "Commercial",
-          "building_tenancies": 15,
-          "client_ref": "PROP-001",
-          "client_signature_required": false,
-          "cofo_date": null,
-          "cofo_location": "",
-          "cofo_number": "",
-          "internal_note": "Key client property",
-          "is_compliant": true,
-          "local_government_area": "City of Sydney",
-          "name": "Test Property 1",
-          "ocsp_number": "",
-          "organisation": "Test Corp",
-          "ref": "TP001",
-          "report_manual": false,
-          "report_requirements": "",
-          "round_number": "R1",
-          "status": "ACTIVE",
-          "authorisation_ref": "",
-          "service_requirements": "",
-          "safety_requirements": "PPE required",
-          "review_date": "2024-06-15",
-          "certification_date": null,
-          "bsecure_latest_sticker_guid": null,
-          "bsecure_resolved_guid": null,
-          "restricted_access_hours": null,
-          "get_absolute_url": "/properties/1/view/",
-          "extra_fields": {}
-        },
-        "relationships": {
-          "client": {
-            "data": {
-              "type": "Client",
-              "id": "1"
-            }
-          },
-          "account_manager": {
-            "data": {
-              "type": "User",
-              "id": "5"
-            }
-          },
-          "billingcard": {
-            "data": null
-          },
-          "parent_property": {
-            "data": null
-          },
-          "branch": {
-            "data": {
-              "type": "Branch",
-              "id": "2"
-            }
-          },
-          "pricetier": {
-            "data": null
-          },
-          "zone": {
-            "data": {
-              "type": "Zone",
-              "id": "3"
-            }
-          },
-          "iotsite": {
-            "data": null
-          }
-        }
-      },
-      {
-        "type": "Property",
-        "id": "2",
-        "attributes": {
-          "__str__": "Test Property 2",
-          "__web_url__": "/properties/2/view/",
-          "created": "2024-03-10T08:00:00Z",
-          "updated": "2024-04-05T16:20:00Z",
-          "inactive_date": null,
-          "address": {
-            "country": "AU",
-            "display": "456 Example Ave, Melbourne VIC 3000",
-            "streetline": "456 Example Ave",
-            "city": "Melbourne",
-            "state": "VIC",
-            "country_name": "Australia",
-            "postal_code": "3000",
-            "place_id": ""
-          },
-          "coords": null,
-          "timezone": "Australia/Melbourne",
-          "access_code": "",
-          "access_inductionreq": false,
-          "access_logbookreq": false,
-          "access_note": "",
-          "access_procedure": "",
-          "access_schedule": "NR",
-          "access_signaturereq": false,
-          "agm_date": null,
-          "autocomp_label": "Test Property 2",
-          "billing_manual": true,
-          "billing_requirements": "PO required",
-          "building_classes": [],
-          "building_construction_class": "",
-          "building_era": "",
-          "building_part": "",
-          "building_size": "",
-          "building_sizesqm": null,
-          "building_storeys_above_ground": null,
-          "building_storeys_below_ground": null,
-          "building_type": "Residential",
-          "building_tenancies": 1,
-          "client_ref": "",
-          "client_signature_required": false,
-          "cofo_date": null,
-          "cofo_location": "",
-          "cofo_number": "",
-          "internal_note": "",
-          "is_compliant": null,
-          "local_government_area": "",
-          "name": "Test Property 2",
-          "ocsp_number": "",
-          "organisation": "",
-          "ref": "TP002",
-          "report_manual": false,
-          "report_requirements": "",
-          "round_number": "",
-          "status": "ACTIVE",
-          "authorisation_ref": "",
-          "service_requirements": "",
-          "safety_requirements": "",
-          "review_date": null,
-          "certification_date": null,
-          "bsecure_latest_sticker_guid": null,
-          "bsecure_resolved_guid": null,
-          "restricted_access_hours": null,
-          "get_absolute_url": "/properties/2/view/",
-          "extra_fields": {}
-        },
-        "relationships": {
-          "client": {
-            "data": {
-              "type": "Client",
-              "id": "2"
-            }
-          },
-          "account_manager": {
-            "data": null
-          },
-          "billingcard": {
-            "data": null
-          },
-          "parent_property": {
-            "data": null
-          },
-          "branch": {
-            "data": null
-          },
-          "pricetier": {
-            "data": null
-          },
-          "zone": {
-            "data": null
-          },
-          "iotsite": {
-            "data": null
-          }
-        }
-      }
-    ],
     "meta": {
       "pagination": {
         "count": 2,
