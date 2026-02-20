@@ -16,6 +16,7 @@ use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 use Saloon\Traits\Plugins\HasTimeout;
 use Throwable;
 use Uptick\PhpSdk\Uptick\Concerns\SupportsClientsEndpoints;
+use Uptick\PhpSdk\Uptick\Concerns\SupportsPropertiesEndpoints;
 use Uptick\PhpSdk\Uptick\Exceptions\ValidationException;
 use Uptick\PhpSdk\Uptick\Paginators\UptickPaginator;
 use Uptick\PhpSdk\Uptick\Requests\Auth\GetAccessTokenRequest;
@@ -27,6 +28,7 @@ final class Uptick extends \Saloon\Http\Connector implements HasPagination
     use AlwaysThrowOnErrors;
     use HasTimeout;
     use SupportsClientsEndpoints;
+    use SupportsPropertiesEndpoints;
 
     /**
      * Cached authenticator instance.
