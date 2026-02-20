@@ -17,19 +17,25 @@ final readonly class Property
     ) {}
 
     /**
-     * Create from JSON:API array response.
+     * Create from array response.
      */
     public static function fromArray(array $data): self
     {
-        $attributes = isset($data['attributes']) && is_array($data['attributes'])
-            ? PropertyAttributes::fromArray($data['attributes'])
-            : PropertyAttributes::fromArray($data);
+        // Extract relationships from flattened structure
+        $relationships = [];
+        $relationshipFields = ['client', 'account_manager', 'billingcard', 'parent_property', 'branch', 'pricetier', 'zone', 'iotsite'];
+
+        foreach ($relationshipFields as $field) {
+            if (isset($data[$field])) {
+                $relationships[$field] = $data[$field];
+            }
+        }
 
         return new self(
             id: (string) $data['id'],
-            type: $data['type'] ?? 'Property',
-            attributes: $attributes,
-            relationships: $data['relationships'] ?? [],
+            type: 'Property',
+            attributes: PropertyAttributes::fromArray($data),
+            relationships: $relationships,
         );
     }
 }
